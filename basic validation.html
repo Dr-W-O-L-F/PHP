@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <script type="text/javascript">
+        function validation() {
+            if (document.myform.name.value === "") {
+                alert("Please provide a name.");
+                document.myform.name.focus();
+                return false;
+            }
+            if (document.myform.email.value === "") {
+                alert("Please provide an email.");
+                document.myform.email.focus();
+                return false;
+            }
+            var pin = document.myform.pin.value;
+            if (pin === "" || isNaN(pin) || pin.length !== 6) {
+                alert("Please provide a 6-digit PIN in the format ######.");
+                document.myform.pin.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="myform"  onsubmit="return validation();">
+        Name: <input type="text" name="name"><br>
+        Email: <input type="email" name="email"><br>
+        PIN: <input type="text" name="pin"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
